@@ -1,5 +1,4 @@
 import sbt._
-import Keys._
 
 object Dependencies {
   val akkaVersion           = "2.2.3-shaded-protobuf"
@@ -39,4 +38,13 @@ object Dependencies {
   // Viz
   val bokeh                 = "io.continuum.bokeh"        %          "bokeh_2.10"           %       "0.2"
 
+  // spark imaging layer code
+  val silVersion = "1.0-SNAPSHOT"
+  val silCore               = "quant.tipl"        %          "tipl-core"      %     silVersion
+  val silIO               = "quant.tipl"        %         "tipl-io"      %     silVersion
+  val silSpark              = "quant.tipl"        %          "tipl-spark"     %  silVersion
+  val silWorkflows          = "quant.tipl"        %          "tipl-workflows"     %  silVersion
+  val silWeb                = "quant.tipl"        %          "tipl-webgui"     %  silVersion
+  val silVV                = "quant.tipl"        %         "tipl-volviewer"     %  silVersion
+  val silExamples                = "quant.tipl"        %          "tipl-examples"     %  silVersion
 }

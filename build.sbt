@@ -16,6 +16,7 @@ parallelExecution in Test in ThisBuild := false
 javaOptions in ThisBuild ++= Seq("-Xmx512M", "-XX:MaxPermSize=128M")
 
 resolvers in ThisBuild ++=  Seq(
+                              Resolver.mavenLocal, // for the spark imaging layer components
                               Resolver.typesafeRepo("releases"),
                               Resolver.sonatypeRepo("releases"),
                               Resolver.typesafeIvyRepo("releases"),
@@ -97,7 +98,14 @@ lazy val common = Project(id = "common", base = file("modules/common"))
                                libraryDependencies ++= Seq(
                                   guava,
                                   sparkRepl,
-                                  sparkSQL
+                                  sparkSQL,
+                                 // spark imaging layer functionality
+                                  silCore,
+                                  silIO,
+                                 silSpark,
+                                 silWorkflows,
+                                 silWeb,
+                                 silVV
                                 ),
                                 libraryDependencies ++= Seq(
                                   aetherApi,
