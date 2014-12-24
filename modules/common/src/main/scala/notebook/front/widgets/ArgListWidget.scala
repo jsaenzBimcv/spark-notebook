@@ -11,9 +11,13 @@ import tipl.util.ArgumentParser
 import tipl.spark.SparkGlobal
 
 /**
- * Created by mader on 12/24/14.
+ * A widget for argumentlist objects
+ * @param initData
+ * @param blockName
+ * @param updateCC the callback function to update the argument parser results
  */
-class ArgListWidget(val initData: ArgumentParser, val blockName: String)
+class ArgListWidget(val initData: ArgumentParser, val blockName: String,
+                    val updateCC: ArgumentParser => Unit)
   extends Form[ArgumentParser] {
 
   val title = "Update "+blockName+" Settings"
@@ -29,6 +33,7 @@ class ArgListWidget(val initData: ArgumentParser, val blockName: String)
   }
 
   val update:ArgumentParser => ArgumentParser = (p:ArgumentParser) => {
+    updateCC(p)
     p
   }
 

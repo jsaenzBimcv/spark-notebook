@@ -9,6 +9,19 @@ import org.json4s.JsonDSL._
 import org.apache.spark.{SparkContext, SparkConf}
 import org.apache.spark.repl.SparkILoop
 
+// for basic spark operations
+import org.apache.spark.SparkContext._
+// SIL Additions
+import org.apache.spark.ui.tipl.TiplUI
+import tipl.blocks.BaseBlockRunner
+import tipl.formats.TImgRO
+import tipl.spark.IOOps._
+import tipl.spark.SparkGlobal
+import tipl.util.TIPLOps._
+import tipl.util._
+import tipl.spark.{DSImg,DTImg,KVImg}
+import spark.images.{ImageTools,ImageTools2D}
+
 
 
 @transient var execUri = Option(System.getenv("SPARK_EXECUTOR_URI"))
